@@ -1,0 +1,19 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+    <h1>Expenses</h1>
+    <ul>
+    {% for expense in expenses %}
+        <!--project associated-->
+        <!--class Expense(models.Model):
+            project = models.ForeignKey(Project, on_delete=models.CASCADE)
+            description = models.TextField(default='Missing description')
+            amount = models.DecimalField(max_digits=8, decimal_places=2)
+            date = models.DateField(null=True, blank=True)
+            def __str__(self):
+                return self.description-->
+        <li>{{ expense.project.name }}</li>
+        <li>${{ expense.amount }} - {{ expense.description }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
